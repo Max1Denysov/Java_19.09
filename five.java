@@ -8,7 +8,7 @@ class A{
 
     }
     void show(){
-        System.out.println("i,j outside = " + i + "/" + j);
+        System.out.println("i,j A outside = " + i + "/" + j);
     }
     class B{
         int i;
@@ -18,7 +18,7 @@ class A{
             j = 25;
         }
         void show(){
-            System.out.println("i,j A inside = " + i + "/" + j);
+            System.out.println("i,j B inside = " + i + "/" + j);
         }
     }
 }
@@ -31,6 +31,7 @@ class AA extends A{
         j = 200;
     }
     void show(){
+        super.show();
         System.out.println("i,j AA outside = " + i + "/" + j);
     }
     class BB{
@@ -41,7 +42,8 @@ class AA extends A{
             j = 2000;
         }
         void show(){
-            System.out.println("i,j out = " + i + "/" + j);
+
+            System.out.println("i,j BB out = " + i + "/" + j);
         }
     }
 }
@@ -54,7 +56,7 @@ public class five {
 
     AA myAAoutside = new AA();
     AA.BB myBBinside = myAAoutside.new BB();
-    myAoutside.show();
+
     myBinside.show();
     myAAoutside.show();
     myBBinside.show();
